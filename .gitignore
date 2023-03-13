@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+Debug/
+AssaultCube-Internal/Debug/
+AssaultCube-Internal/x64/

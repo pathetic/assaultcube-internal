@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Heart\heart.cpp" />
+    <ClCompile Include="Dependencies\ImGui\imgui.cpp" />
+    <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Dependencies\ImGui\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="Dependencies\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Dependencies\minhook\src\hde\hde32.c" />
+    <ClCompile Include="Dependencies\minhook\src\hde\hde64.c" />
+    <ClCompile Include="Dependencies\minhook\src\buffer.c" />
+    <ClCompile Include="Dependencies\minhook\src\hook.c" />
+    <ClCompile Include="Dependencies\minhook\src\trampoline.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Heart\globals.hpp" />
+    <ClInclude Include="Heart\heart.hpp" />
+    <ClInclude Include="Heart\offsets.hpp" />
+    <ClInclude Include="Heart\hooks.hpp" />
+    <ClInclude Include="Dependencies\ImGui\color.h" />
+    <ClInclude Include="Dependencies\ImGui\ico_pack.h" />
+    <ClInclude Include="Dependencies\ImGui\imconfig.h" />
+    <ClInclude Include="Dependencies\ImGui\imgui.h" />
+    <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl2.h" />
+    <ClInclude Include="Dependencies\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Dependencies\ImGui\imgui_internal.h" />
+    <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Dependencies\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Dependencies\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Dependencies\ImGui\inter.h" />
+    <ClInclude Include="Dependencies\minhook\include\MinHook.h" />
+    <ClInclude Include="Dependencies\minhook\src\hde\hde32.h" />
+    <ClInclude Include="Dependencies\minhook\src\hde\hde64.h" />
+    <ClInclude Include="Dependencies\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="Dependencies\minhook\src\hde\table32.h" />
+    <ClInclude Include="Dependencies\minhook\src\hde\table64.h" />
+    <ClInclude Include="Dependencies\minhook\src\buffer.h" />
+    <ClInclude Include="Dependencies\minhook\src\trampoline.h" />
+    <ClInclude Include="Menu\menu.hpp" />
+    <ClInclude Include="Menu\colors.hpp" />
+    <ClInclude Include="Menu\var.hpp" />
+    <ClInclude Include="Heart\game.hpp" />
+    <ClInclude Include="Heart\cheat.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
