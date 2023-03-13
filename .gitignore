@@ -34,3 +34,5 @@
 Debug/
 AssaultCube-Internal/Debug/
 AssaultCube-Internal/x64/
+.vs/
+x64/

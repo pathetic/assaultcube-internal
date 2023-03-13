@@ -28,10 +28,10 @@ namespace egirl
 				continue;
 
 			Game::Vec2 PlayerCoords;
-			if (!WorldToScreen({ Enemy->x, Enemy->y, Enemy->z }, PlayerCoords, Matrix.Matrix, 1280, 720)) continue;
+			if (!WorldToScreen({ Enemy->x, Enemy->y, Enemy->z }, PlayerCoords, Matrix.Matrix, Globals::ScreenWidth, Globals::ScreenHeight)) continue;
 
 			Game::Vec2 FeetCoords;
-			if (!WorldToScreen({ Enemy->x_foot, Enemy->y_foot, Enemy->z_foot }, FeetCoords, Matrix.Matrix, 1280, 720)) continue;
+			if (!WorldToScreen({ Enemy->x_foot, Enemy->y_foot, Enemy->z_foot }, FeetCoords, Matrix.Matrix, Globals::ScreenWidth, Globals::ScreenHeight)) continue;
 
 			float EntityHeight = PlayerCoords.y - FeetCoords.y;
 			float EntityWidth = EntityHeight / 2.5;
@@ -83,7 +83,7 @@ namespace egirl
 	}
 
 	void Aimbot() {
-		if (var::drawFov) ImGui::GetBackgroundDrawList()->AddCircle({ 1280 / 2, 720 / 2 }, var::fov, ImColor(255, 255, 255));
+		if (var::drawFov) ImGui::GetBackgroundDrawList()->AddCircle({ (float)Globals::ScreenWidth / 2, (float)Globals::ScreenHeight / 2 }, var::fov, ImColor(255, 255, 255));
 		if (!var::aimbot) return;
 
 		uintptr_t ent = *(uintptr_t*)(Globals::BaseAddress + Offsets::LocalEntity);

@@ -3,6 +3,7 @@
 #include "../Menu/menu.hpp"
 #include "../Menu/var.hpp"
 #include "offsets.hpp"
+#include "globals.hpp"
 
 # define M_PI 3.14159265358979323846
 
@@ -173,8 +174,8 @@ namespace Game {
 				continue;
 
 			Vec2 TargetScreen;
-			if (!WorldToScreen({ Enemy->x, Enemy->y, Enemy->z }, TargetScreen, Matrix.Matrix, 1280, 720)) continue;
-			float DistanceToFOV = Distance({ 1280 / 2, 720 / 2 }, TargetScreen);
+			if (!WorldToScreen({ Enemy->x, Enemy->y, Enemy->z }, TargetScreen, Matrix.Matrix, Globals::ScreenWidth, Globals::ScreenHeight)) continue;
+			float DistanceToFOV = Distance({ (float)Globals::ScreenWidth / 2, (float)Globals::ScreenHeight / 2 }, TargetScreen);
 			if (DistanceToFOV < var::fov)
 			{
 				Target = Enemy;
