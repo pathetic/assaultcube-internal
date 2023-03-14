@@ -56,8 +56,10 @@ namespace egirl
 					ImGui::GetBackgroundDrawList()->AddLine({ ESPLeft, ESPBottom + 20.f }, { ESPRight, ESPBottom + 20.f }, ImColor(50, 205, 50), 5.f);
 					ImGui::GetBackgroundDrawList()->AddLine({ ESPLeft + HPRight, ESPBottom + 20.f }, { ESPRight, ESPBottom + 20.f }, ImColor(128, 128, 128), 5.f);
 				}
-					
-				//ImGui::GetBackgroundDrawList()->AddText(ImVec2(ESPLeft, ESPTop - 20.f), ImColor(var::teamColor[0], var::teamColor[1], var::enemyColor[2]), Enemy->Name);
+				
+				if (var::enemyTrace) {
+					ImGui::GetBackgroundDrawList()->AddLine({ (float)Globals::ScreenWidth / 2, (float)Globals::ScreenHeight }, {(ESPRight + ESPLeft) / 2, ESPBottom}, ImColor(var::enemyColor[0], var::enemyColor[1], var::enemyColor[2]));
+				}
 			}
 			else if(Enemy->TeamNum == LocalPlayer->TeamNum && var::teamEsp)
 			{
@@ -76,9 +78,27 @@ namespace egirl
 					ImGui::GetBackgroundDrawList()->AddLine({ ESPLeft, ESPBottom + 20.f }, { ESPRight, ESPBottom + 20.f }, ImColor(50, 205, 50), 5.f);
 					ImGui::GetBackgroundDrawList()->AddLine({ ESPLeft + HPRight, ESPBottom + 20.f }, { ESPRight, ESPBottom + 20.f }, ImColor(128,128,128), 5.f);
 				}
-				//ImGui::GetBackgroundDrawList()->AddText(ImVec2(ESPLeft, ESPTop - 20.f), ImColor(var::teamColor[0], var::teamColor[1], var::teamColor[2]), Enemy->Name);
+
+				if (var::teamTrace) {
+					ImGui::GetBackgroundDrawList()->AddLine({ (float)Globals::ScreenWidth / 2, (float)Globals::ScreenHeight }, { (ESPRight + ESPLeft) / 2, ESPBottom }, ImColor(var::teamColor[0], var::teamColor[1], var::teamColor[2]));
+				}
 			}
 
+
+			if (Enemy->TeamNum != LocalPlayer->TeamNum && var::tpPlayers) // don't want to make the Misc function longer by adding localply / entitylist since it will be only used for this function
+			{
+				float ourYaw = LocalPlayer->Yaw;
+				ourYaw -= 90.f;
+				if (ourYaw < 0.0f) ourYaw += 360.f;
+
+				Game::Vec2 ourPos = { 
+					LocalPlayer->x_foot + cos(ourYaw * (M_PI / 180.f)) * var::tpDistance,
+					LocalPlayer->y_foot + sin(ourYaw * (M_PI / 180.f)) * var::tpDistance
+				};
+
+				Enemy->x_foot = ourPos.x;
+				Enemy->y_foot = ourPos.y;
+			}
 		}
 	}
 
@@ -134,5 +154,22 @@ namespace egirl
 		if (var::noPushback) LocalPlayer->CurrentWeapon->WeaponData->recoilPushBack = 0;
 		if (var::infAmmo) *LocalPlayer->CurrentWeapon->AmmoPointer = 999;
 		if (var::noGunMvmnt) LocalPlayer->CurrentWeapon->WeaponData->gunMovement = 0;
+
+		if (var::flyHack)
+			if (GetAsyncKeyState(var::flyKey))
+				LocalPlayer->SpecMode = 4;
+			else if (LocalPlayer->Health < 0) LocalPlayer->SpecMode = 4;
+			else LocalPlayer->SpecMode = 0;
+
+
+		if (var::fullBrightness)
+		{
+			*Globals::cBrightness = 100;
+			__asm call Globals::SetBrightness;
+		}
+		else {
+			*Globals::cBrightness = 40;
+			__asm call Globals::SetBrightness;
+		}
 	}
 }

@@ -3,6 +3,8 @@
 namespace var {
     bool enemyEsp = false;
     bool teamEsp = false;
+    bool enemyTrace = false;
+    bool teamTrace = false;
 
     float enemyColor[4] = { 31.0f / 255.0f, 31.0f / 255.0f, 231.0f / 255.0f, 1.0f };
     float teamColor[4] = { 231.0f / 255.0f, 31.0f / 255.0f, 31.0f / 255.0f, 1.0f };
@@ -25,6 +27,12 @@ namespace var {
     bool noPushback = false;
     bool infAmmo = false;
     bool noGunMvmnt = false;
+    bool fullBrightness = false;
+    bool tpPlayers = false;
+    float tpDistance = 10.0f;
+
+    bool flyHack = false;
+    int flyKey = 0x51;
 
     bool debugConsole = false;
 }

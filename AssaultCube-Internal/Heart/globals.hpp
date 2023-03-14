@@ -10,11 +10,17 @@ namespace Globals
 	inline uint32_t ScreenWidth = NULL;
 	inline uint32_t ScreenHeight = NULL;
 
+	inline uint32_t* cBrightness = NULL;
+	inline DWORD SetBrightness = NULL;
+
 	void Initialize()
 	{
 		BaseAddress = reinterpret_cast<std::uintptr_t>(GetModuleHandle("ac_client.exe"));
 		LocalPlayer = *reinterpret_cast<std::uintptr_t*>(BaseAddress + 0x17E0A8);
 		ScreenWidth = *reinterpret_cast<std::uint32_t*>(BaseAddress + Offsets::ScreenWidth);
 		ScreenHeight = *reinterpret_cast<std::uint32_t*>(BaseAddress + Offsets::ScreenHeight);
+
+		cBrightness = reinterpret_cast<std::uint32_t*>(Globals::BaseAddress + Offsets::Brightness);
+		SetBrightness = BaseAddress + Offsets::SetBrightness;
 	}
 }

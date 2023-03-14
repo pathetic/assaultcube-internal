@@ -21,7 +21,9 @@ namespace Game {
 		float z_foot; //0x0030
 		float Yaw; //0x0034
 		float Pitch; //0x0038
-		char pad_003C[176]; //0x003C
+		char pad_003C[58]; //0x003C
+		int8_t SpecMode; //0x0076
+		char pad_0077[117]; //0x0077
 		int32_t Health; //0x00EC
 		int32_t Armor; //0x00F0
 		char pad_00F4[273]; //0x00F4
@@ -32,6 +34,7 @@ namespace Game {
 		class Weapon* CurrentWeapon; //0x0368
 		char pad_036C[223]; //0x036C
 	}; //Size: 0x044C
+
 
 	class Weapon
 	{

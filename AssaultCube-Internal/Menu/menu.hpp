@@ -184,6 +184,15 @@ namespace Menu
                         ImGui::Checkbox("Health", &var::healthEsp);
                     }
                     ImGui::EndChild();
+
+                    ImGui::SetCursorPos(ImVec2(243, 170));
+
+                    ImGui::BeginChild("Tracelines", ImVec2(225, 150), true);
+                    {
+                        ImGui::Checkbox("Enemy Trace", &var::enemyTrace);
+                        ImGui::Checkbox("Team Trace", &var::teamTrace);
+                    }
+                    ImGui::EndChild();
                 }
                 break;
 
@@ -213,10 +222,12 @@ namespace Menu
                 
                 case 2:
                 {
-                    ImGui::BeginChild("Player", ImVec2(225, 140), true);
+                    ImGui::BeginChild("Player", ImVec2(225, 220), true);
                     {
                         ImGui::Checkbox("Infinite Health", &var::infHealth);
                         ImGui::Checkbox("Infinite Armor", &var::infArmor);
+                        ImGui::Checkbox("Fly Hack", &var::flyHack);
+                        ImGui::Keybind("Fly Key", &var::flyKey, true);
                     }
                     ImGui::EndChild();
 
@@ -229,6 +240,16 @@ namespace Menu
                         ImGui::Checkbox("No Pushback", &var::noPushback);
                         ImGui::Checkbox("Infinite Ammo", &var::infAmmo);
                         ImGui::Checkbox("No Gun Mvmnt", &var::noGunMvmnt);
+                    }
+                    ImGui::EndChild();
+
+                    ImGui::SetCursorPos(ImVec2(0, 240));
+
+                    ImGui::BeginChild("World", ImVec2(225, 185), true);
+                    {
+                        ImGui::Checkbox("Full Brightness", &var::fullBrightness);
+                        ImGui::Checkbox("Teleport Enemies", &var::tpPlayers);
+                        ImGui::SliderFloat("TP Distance", &var::tpDistance, 3, 30, "%.1f");
                     }
                     ImGui::EndChild();
                 }
