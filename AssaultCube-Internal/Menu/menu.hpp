@@ -4,7 +4,7 @@
 #include <imgui_impl_opengl2.h>
 #include <imgui_impl_win32.h>
 #include <ico_pack.h>
-#include <inter.h>
+#include <clash.h>
 #include <cmath>
 
 #include "colors.hpp"
@@ -32,13 +32,13 @@ namespace Menu
     
     void MenuIO() {
         ImGuiIO& io = ImGui::GetIO(); (void)io;
-        io.Fonts->AddFontFromMemoryTTF(&inter, sizeof inter, 20, NULL, io.Fonts->GetGlyphRangesCyrillic());
+        io.Fonts->AddFontFromMemoryTTF(&clash, sizeof clash, 20, NULL, io.Fonts->GetGlyphRangesCyrillic());
         ico = io.Fonts->AddFontFromMemoryTTF(&icon, sizeof icon, 25, NULL, io.Fonts->GetGlyphRangesCyrillic());
         ico_subtab = io.Fonts->AddFontFromMemoryTTF(&icon, sizeof icon, 35, NULL, io.Fonts->GetGlyphRangesCyrillic());
         ico_logo = io.Fonts->AddFontFromMemoryTTF(&icon, sizeof icon, 31, NULL, io.Fonts->GetGlyphRangesCyrillic());
-        tab_text = io.Fonts->AddFontFromMemoryTTF(&inter, sizeof inter, 19, NULL, io.Fonts->GetGlyphRangesCyrillic());
+        tab_text = io.Fonts->AddFontFromMemoryTTF(&clash, sizeof clash, 19, NULL, io.Fonts->GetGlyphRangesCyrillic());
         ico_minimize = io.Fonts->AddFontFromMemoryTTF(&icon, sizeof icon, 27, NULL, io.Fonts->GetGlyphRangesCyrillic());
-        esp_text = io.Fonts->AddFontFromMemoryTTF(&inter, sizeof inter, 19, NULL, io.Fonts->GetGlyphRangesCyrillic());
+        esp_text = io.Fonts->AddFontFromMemoryTTF(&clash, sizeof clash, 19, NULL, io.Fonts->GetGlyphRangesCyrillic());
     }
 
 	void StyleMenu() {
@@ -209,7 +209,7 @@ namespace Menu
 
                     ImGui::SetCursorPos(ImVec2(243, 0));
 
-                    ImGui::BeginChild("Additional", ImVec2(225, 245), true);
+                    ImGui::BeginChild("Additional", ImVec2(225, 255), true);
                     {
                         ImGui::Checkbox("FOV Circle", &var::drawFov);
                         ImGui::SliderFloat("FOV Radius", &var::fov, 1, 300, "%.1f");
@@ -245,7 +245,7 @@ namespace Menu
 
                     ImGui::SetCursorPos(ImVec2(0, 240));
 
-                    ImGui::BeginChild("World", ImVec2(225, 185), true);
+                    ImGui::BeginChild("World", ImVec2(225, 200), true);
                     {
                         ImGui::Checkbox("Full Brightness", &var::fullBrightness);
                         ImGui::Checkbox("Teleport Enemies", &var::tpPlayers);

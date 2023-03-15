@@ -157,7 +157,7 @@
     <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Dependencies\ImGui\imstb_textedit.h" />
     <ClInclude Include="Dependencies\ImGui\imstb_truetype.h" />
-    <ClInclude Include="Dependencies\ImGui\inter.h" />
+    <ClInclude Include="Dependencies\ImGui\clash.h" />
     <ClInclude Include="Dependencies\minhook\include\MinHook.h" />
     <ClInclude Include="Dependencies\minhook\src\buffer.h" />
     <ClInclude Include="Dependencies\minhook\src\hde\hde32.h" />
