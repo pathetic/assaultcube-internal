@@ -34,7 +34,7 @@ Internal Cheat for Assault Cube (1.3.0.2).
 # 📋 Compiling and using it
 - Open the solution on Visual Studio.  
 - Compile as Release (x86).  
-- Inject the DLL at into the game.  
+- Inject the DLL into the game.  
   
 # 🎥 Preview
 - [Assault Cube Internal](https://www.youtube.com/watch?v=_nF3UcMUA6w)
