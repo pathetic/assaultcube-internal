@@ -31,7 +31,7 @@ Internal Cheat for Assault Cube (1.3.0.2).
       > Full brightness  
       > Teleport enemies
 
-# 📋 How to use
+# 📋 Compiling and using it
 - Open the solution on Visual Studio.  
 - Compile as Release (x86).  
 - Inject the DLL at into the game.  
